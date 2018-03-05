@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <h1>路由表信息</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>目的网段</th>
+                <th>子网掩码</th>
+                <th>下一跳</th>
+                <th>接口</th>
+                <th>代价</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in RIB %}
+                <td>{{ row.network_dest }}</td>
+                <td>{{ row.netmask }}</td>
+                <td>{{ row.next_hop }}</td>
+                <td>{{ row.interface }}</td>
+                <td>{{ row.metric }}</td>
+            {% endfor %}
+
+        </tbody>
+    </table>
+    <div>
+        <a class="menu" href="/">回到主页面</a>
+    </div>
+</body>
+</html>
